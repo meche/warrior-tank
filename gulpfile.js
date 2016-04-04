@@ -65,7 +65,7 @@ gulp.task( 'css', function() {
 // lint javascript
 
 gulp.task( 'lint', function() {
-  return gulp.src( jadeForest.js, jadeForest.appJs )
+  return gulp.src( jadeForest.js )
     .pipe( jshint() )
     .pipe( myReporter );
 } );
