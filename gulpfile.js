@@ -66,6 +66,6 @@ gulp.task( 'css', function() {
 
 gulp.task( 'lint', function() {
   return gulp.src( jadeForest.js )
-    .pipe( jshint() )
+    .pipe( jsHint() )
     .pipe( myReporter );
 } );
