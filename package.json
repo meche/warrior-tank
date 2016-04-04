@@ -2,9 +2,6 @@
   "name": "warrior-tank",
   "version": "0.0.1",
   "description": "Environment front-end developer",
-  "scripts": {
-    /*"test": "jasmine tests/*.js"*/
-  },
   "keywords": [
     "frontend",
     "gulp",
