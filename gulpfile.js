@@ -18,7 +18,7 @@ var uglify = require( 'gulp-uglify' );
 var jadeForest = {
     appJs: 'app/**/*.js',
     css: 'assets/stylesheet/**/*.styl',
-    cssStylus: 'assets/stylesheet/styles.styl'
+    cssStylus: 'assets/stylesheet/styles.styl',
     html: 'dev/**/*.jade',
     img: 'assets/images/**/*',
     js: 'assets/javascript/**/*.js'
