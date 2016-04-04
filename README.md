@@ -1,5 +1,7 @@
 ![Warrior Tank](logo.png)
 
+[![Build Status](https://travis-ci.org/meche/warrior-tank.svg?branch=master)](https://travis-ci.org/meche/warrior-tank)
+
 The boilerplate for frontend.
 
 This boilerplate is a simple example used on my [workflow](https://github.com/meche/workflow).
