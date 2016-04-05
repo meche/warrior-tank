@@ -15,4 +15,4 @@ This boilerplate is a simple example used on my [workflow](https://github.com/me
 
 ## Usage
 
-run in your terminal `gulp warriorTank` for watch.
+run in your terminal `gulp pullTheBoss` for watch.

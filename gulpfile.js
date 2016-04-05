@@ -7,10 +7,13 @@ var clean = require( 'gulp-clean' );
 var concat = require( 'gulp-concat' );
 var htmlMin = require( 'gulp-htmlmin' );
 var imageMin = require( 'gulp-imagemin' );
+var koutoSwiss = require( 'kouto-swiss' );
 var jade = require( 'gulp-jade' );
+var jeet = require( 'jeet' );
 var jsHint = require( 'gulp-jshint' );
 var map = require( 'map-stream' );
 var rename = require( 'gulp-rename' );
+var rupture = require( 'rupture' );
 var sourceMaps = require( 'gulp-sourcemaps' );
 var stylus = require ( 'gulp-stylus' );
 var uglify = require( 'gulp-uglify' );
@@ -19,8 +22,9 @@ var jadeForest = {
     appJs: 'app/**/*.js',
     css: 'assets/stylesheet/**/*.styl',
     cssStylus: 'assets/stylesheet/styles.styl',
-    html: 'assets/**/*.jade',
+    html: 'dev/**/*.html',
     img: 'assets/images/**/*',
+    jade: 'assets/**/*.jade',
     js: 'assets/javascript/**/*.js'
 };
 
@@ -53,7 +57,7 @@ var myReporter = map(function (file, cb) {
 // Clear folder dist
 
 gulp.task( 'clean', function() {
-    return gulp.src( 'dev/**/*' )
+    return gulp.src( jadeForest.html )
         .pipe( clean() );
 } );
 
@@ -67,17 +71,20 @@ gulp.task( 'css', function() {
             compress: true
         } ) )
         .pipe( sourceMaps.write() )
-        .pipe( gulp.dest( kunlaiSummit.css ) );
+        .pipe( gulp.dest( kunlaiSummit.css ) )
+        .pipe( browserSync.reload( {
+            stream: true
+        } ) );
 } );
 
 // compiler jade
 
 gulp.task( 'jade', function() {
-    gulp.src( jadeForest.html )
+    gulp.src( jadeForest.jade )
         .pipe( jade( {
             pretty: true
         } ) )
-        .pipe( gulp.dest( kunlaiSummit.dev ) )
+        .pipe( gulp.dest( kunlaiSummit.dev ) );
 } );
 
 // lint javascript
@@ -86,4 +93,22 @@ gulp.task( 'lint', function() {
   return gulp.src( jadeForest.js )
     .pipe( jsHint() )
     .pipe( myReporter );
+} );
+
+// browserSync
+
+gulp.task( 'browserSync', function() {
+    browserSync( {
+        server: {
+            baseDir: kunlaiSummit.dev
+        }
+    } )
+} );
+
+// Watch files... PULL THE BOSS!!
+
+gulp.task( 'pullTheBoss', ['browserSync'], function() {
+    gulp.watch( jadeForest.css, ['css'] );
+    gulp.watch( jadeForest.jade, ['jade'] );
+    gulp.watch( jadeForest.html, browserSync.reload );
 } );
