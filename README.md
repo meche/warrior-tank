@@ -1,6 +1,6 @@
 ![Warrior Tank](logo.png)
 
-[![Build Status](https://travis-ci.org/meche/warrior-tank.svg?branch=master)](https://travis-ci.org/meche/warrior-tank)
+[![Build Status](https://travis-ci.org/meche/warrior-tank.svg?branch=master)](https://travis-ci.org/meche/warrior-tank) [![Code Climate](https://codeclimate.com/repos/570311d0d1459229ff0098d3/badges/c22e5db1103a72403953/gpa.svg)](https://codeclimate.com/repos/570311d0d1459229ff0098d3/feed)
 
 The boilerplate for frontend.
 
