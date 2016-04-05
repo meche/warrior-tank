@@ -3,5 +3,4 @@ engines:
     enabled: true
     config:
       languages:
-      - ruby
       - javascript
