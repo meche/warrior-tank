@@ -19,10 +19,18 @@ var jadeForest = {
     appJs: 'app/**/*.js',
     css: 'assets/stylesheet/**/*.styl',
     cssStylus: 'assets/stylesheet/styles.styl',
-    html: 'dev/**/*.jade',
+    html: 'assets/**/*.jade',
     img: 'assets/images/**/*',
     js: 'assets/javascript/**/*.js'
 };
+
+var kunlaiSummit = {
+    css: 'dev/css/',
+    dev: 'dev/',
+    img: 'dev/img/',
+    js: 'dev/js/'
+};
+
 var eternalBlossoms = {
     css: 'dist/css/',
     img: 'dist/img/',
@@ -45,7 +53,7 @@ var myReporter = map(function (file, cb) {
 // Clear folder dist
 
 gulp.task( 'clean', function() {
-    return gulp.src( eternalBlossoms.dist )
+    return gulp.src( 'dev/**/*' )
         .pipe( clean() );
 } );
 
@@ -59,7 +67,17 @@ gulp.task( 'css', function() {
             compress: true
         } ) )
         .pipe( sourceMaps.write() )
-        .pipe( gulp.dest( eternalBlossoms.css ) );
+        .pipe( gulp.dest( kunlaiSummit.css ) );
+} );
+
+// compiler jade
+
+gulp.task( 'jade', function() {
+    gulp.src( jadeForest.html )
+        .pipe( jade( {
+            pretty: true
+        } ) )
+        .pipe( gulp.dest( kunlaiSummit.dev ) )
 } );
 
 // lint javascript
