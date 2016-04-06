@@ -70,7 +70,7 @@ gulp.task( 'css', function() {
             use: [koutoSwiss(), autoPrefixer(), jeet(), rupture()],
             compress: true
         } ) )
-        .pipe( sourceMaps.write() )
+        .pipe( sourceMaps.write( './' ) )
         .pipe( gulp.dest( kunlaiSummit.css ) )
         .pipe( browserSync.reload( {
             stream: true

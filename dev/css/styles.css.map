@@ -1,0 +1,1 @@
+{"version":3,"sources":["styles.styl"],"names":[],"mappings":"AAAA,EACC,UACA,QAAO,CAER,KACC,mBACA,eACA,aAAM,CAAA,sCAAA","file":"styles.css","sourceRoot":"/source/","sourcesContent":["*\r\n\tpadding 0\r\n\tmargin 0\r\n\r\nbody\r\n\tbackground #f5f5f5\r\n\tfont-size 16px\r\n\tcolor #313131"]}
