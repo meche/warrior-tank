@@ -1,7 +1,7 @@
 'use strict'
 
 var gulp = require('gulp');
-var autoPrefixer = require( 'autoprefixer-stylus' );
+var autoprefixer = require( 'autoprefixer-stylus' );
 var browserSync = require( 'browser-sync' );
 var clean = require( 'gulp-clean' );
 var concat = require( 'gulp-concat' );
@@ -67,8 +67,8 @@ gulp.task( 'css', function() {
     gulp.src( jadeForest.cssStylus )
         .pipe( sourceMaps.init() )
         .pipe( stylus( {
-            use: [koutoSwiss(), autoPrefixer(), jeet(), rupture()],
-            compress: true
+            use: [koutoSwiss(), autoprefixer('> 0%'), jeet(), rupture()],
+            compress: false
         } ) )
         .pipe( sourceMaps.write( './' ) )
         .pipe( gulp.dest( kunlaiSummit.css ) )
